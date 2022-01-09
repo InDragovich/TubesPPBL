@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Tubes PPBL</string>
+    <string name="welcomesign"><b>Selamat Datang</b></string>
+    <string name="pelanggan">Masuk Sebagai Pelanggan</string>
+    <string name="admin">Masuk Sebagai Admin</string>
+    <string name="menu"><b>Daftar Menu</b></string>
+    <string name="makanan"><b>Makanan</b></string>
+    <string name="minuman"><b>Minuman</b></string>
+    <string name="btntambah"><b>Tambah ke Pesanan</b></string>
+    <string name="deskripsi"><b>Deskripsi</b></string>
+    <string name="judul"><b>Title</b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
