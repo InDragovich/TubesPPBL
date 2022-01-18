@@ -32,6 +32,7 @@ public class LoginAdmin extends Activity {
         setContentView(R.layout.activity_login);
 
 
+
         buttonLoginAdmin=findViewById(R.id.btnLoginAdmin);
 
         name = (TextView) findViewById(R.id.etName);

@@ -140,6 +140,7 @@ public class AdminActivity extends AppCompatActivity {
         builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
             }
         });
         builder.create().show();
