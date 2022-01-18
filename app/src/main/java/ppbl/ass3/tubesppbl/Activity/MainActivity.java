@@ -15,17 +15,18 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 import ppbl.ass3.tubesppbl.R;
 
-public class AdminActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     FloatingActionButton add_button;
@@ -34,23 +35,44 @@ public class AdminActivity extends AppCompatActivity {
 
     DataHelper dh;
     ArrayList<String> menu_id, menu_nama, menu_harga, menu_jumlah, menu_deskripsi;
-    CustomAdapter customAdapter;
+    CustomAdapterCust customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin);
+        setContentView(R.layout.activity_main);
 
         recyclerView =  findViewById(R.id.recyclerView);
         add_button =  findViewById(R.id.add_button);
         empty_imageview = findViewById(R.id.empty_imageview);
         data_kosong = findViewById(R.id.data_kosong);
-        add_button.setOnClickListener(view -> {
-            Intent intent = new Intent(AdminActivity.this, AddActivity.class);
-            startActivity(intent);
+//        add_button.setOnClickListener(view -> {
+//            Intent intent = new Intent(MainActivity.this, AddActivity.class);
+//            startActivity(intent);
+//        });
+        BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
+
+        bottomNavigation.setSelectedItemId(R.id.beranda);
+
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.beranda:
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.keranjang:
+                        startActivity(new Intent(getApplicationContext(), CartActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                }
+                return false;
+            }
         });
 
-        dh = new DataHelper(AdminActivity.this);
+        dh = new DataHelper(MainActivity.this);
         menu_id = new ArrayList<>();
         menu_nama = new ArrayList<>();
         menu_harga = new ArrayList<>();
@@ -59,9 +81,9 @@ public class AdminActivity extends AppCompatActivity {
 
         storedDataInArrays();
 
-        customAdapter = new CustomAdapter(AdminActivity.this,this, menu_id, menu_nama, menu_harga, menu_jumlah, menu_deskripsi);
+        customAdapter = new CustomAdapterCust(MainActivity.this,this, menu_id, menu_nama, menu_harga, menu_jumlah, menu_deskripsi);
         recyclerView.setAdapter(customAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(AdminActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
     @Override
@@ -99,33 +121,15 @@ public class AdminActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.delete_all){
-            confirmDialog();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
-    void confirmDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Ingin hapus semua data?");
-        builder.setMessage("Apa anda yakin ingin menghapus semua data?");
-        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                DataHelper dh = new DataHelper(AdminActivity.this);
-                dh.deleteAllData();
-                Intent intent = new Intent(AdminActivity.this, AdminActivity.class);
-                startActivity(intent);
-                recreate();
-            }
-        });
-        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
-        });
-        builder.create().show();
-    }
+
+//private void buttomNavigation(){
+//    bottomNavigation bottomNavigationView = findViewById(R.id.bottomNavigationView);
+//    bottomNavigation.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            startActivity(new Intent(MainActivity.this, CartListActivity.class));
+//        }
+//    });
+//}
 }

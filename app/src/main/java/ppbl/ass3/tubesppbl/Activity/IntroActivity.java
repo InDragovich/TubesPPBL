@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import ppbl.ass3.tubesppbl.MainActivity;
 import ppbl.ass3.tubesppbl.R;
 
 public class IntroActivity extends AppCompatActivity {

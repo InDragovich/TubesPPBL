@@ -9,7 +9,6 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import ppbl.ass3.tubesppbl.MainActivity;
 import ppbl.ass3.tubesppbl.R;
 
 public class CartActivity extends AppCompatActivity {
