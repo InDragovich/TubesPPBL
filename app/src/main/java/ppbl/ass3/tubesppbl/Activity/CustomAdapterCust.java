@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ public class CustomAdapterCust extends RecyclerView.Adapter<CustomAdapterCust.My
     Activity activity;
     private ArrayList menu_id, menu_nama, menu_harga, menu_jumlah, menu_deskripsi;
     int position;
+    Animation translate_anim;
 
     CustomAdapterCust(Activity activity, Context context, ArrayList menu_id, ArrayList menu_nama, ArrayList menu_harga, ArrayList menu_jumlah, ArrayList menu_deskripsi){
     this.activity = activity;
@@ -79,6 +82,8 @@ public class CustomAdapterCust extends RecyclerView.Adapter<CustomAdapterCust.My
             menu_jumlah_txt = itemView.findViewById(R.id.menu_jumlah_txt);
             menu_deskripsi_txt = itemView.findViewById(R.id.menu_deskripsi_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);
+            translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
+            mainLayout.setAnimation(translate_anim);
         }
     }
 }
