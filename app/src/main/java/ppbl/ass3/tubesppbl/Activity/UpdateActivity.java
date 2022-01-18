@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +25,19 @@ public class UpdateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
+
+        // Define ActionBar object
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        // Define ColorDrawable object and parse color
+        // using parseColor method
+        // with color hash code as its parameter
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#ff5e00"));
+
+        // Set BackgroundDrawable
+        ((ActionBar) actionBar).setBackgroundDrawable(colorDrawable);
 
         id_input = findViewById(R.id.id_input);
         nama_input = findViewById(R.id.nama_input2);

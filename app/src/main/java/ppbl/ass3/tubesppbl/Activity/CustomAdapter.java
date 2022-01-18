@@ -44,9 +44,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.position = position;
         holder.id_txt.setText(String.valueOf(menu_id.get(position)));
         holder.menu_nama_txt.setText(String.valueOf(menu_nama.get(position)));
-//        holder.menu_harga_txt.setText(String.valueOf(menu_harga.get(position)));
-//        holder.menu_jumlah_txt.setText(String.valueOf(menu_jumlah.get(position)));
-//        holder.menu_deskripsi_txt.setText(String.valueOf(menu_deskripsi.get(position)));
+        holder.menu_harga_txt.setText(String.valueOf(menu_harga.get(position)));
+        holder.menu_jumlah_txt.setText(String.valueOf(menu_jumlah.get(position)));
+        holder.menu_deskripsi_txt.setText(String.valueOf(menu_deskripsi.get(position)));
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

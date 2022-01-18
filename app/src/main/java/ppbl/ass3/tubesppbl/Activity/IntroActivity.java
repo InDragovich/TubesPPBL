@@ -33,7 +33,7 @@ public class IntroActivity extends AppCompatActivity {
         buttonadm.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity((new Intent(IntroActivity.this, AdminActivity.class)));
+                startActivity((new Intent(IntroActivity.this, LoginAdmin.class)));
             }
         }));
     }

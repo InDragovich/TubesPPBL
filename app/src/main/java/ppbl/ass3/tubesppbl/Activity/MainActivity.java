@@ -2,6 +2,7 @@ package ppbl.ass3.tubesppbl.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,6 +45,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Define ActionBar object
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        // Define ColorDrawable object and parse color
+        // using parseColor method
+        // with color hash code as its parameter
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#ff5e00"));
+
+        // Set BackgroundDrawable
+        ((ActionBar) actionBar).setBackgroundDrawable(colorDrawable);
         recyclerView =  findViewById(R.id.recyclerView);
         add_button =  findViewById(R.id.add_button);
         empty_imageview = findViewById(R.id.empty_imageview);
@@ -114,12 +129,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.my_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+//    @Override
+////    public boolean onCreateOptionsMenu(Menu menu) {
+////        MenuInflater inflater = getMenuInflater();
+////        inflater.inflate(R.menu.my_menu, menu);
+////        return super.onCreateOptionsMenu(menu);
+////    }
 
 
 
